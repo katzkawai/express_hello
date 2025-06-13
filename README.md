@@ -1,7 +1,74 @@
-# Simple express demo
+# 時間帯別挨拶アプリ
 
-> Express: fast, unopinionated, minimalist web framework for Node.js
+時間帯に応じて異なる挨拶を表示するシンプルなWebアプリケーションです。
 
-This project shows a simple express server serving a single HTML page and using `express.static` to serve static files.
+## 概要
 
-Check out the [express documentation](https://expressjs.com/) for more information.
+このアプリケーションは、現在の時刻を表示し、時間帯に応じて適切な日本語の挨拶を表示します。
+
+### 時間帯別の挨拶
+- **朝 (5:00-10:59)**: おはようございます 🌅
+- **昼 (11:00-17:59)**: こんにちは ☀️
+- **夜 (18:00-23:59)**: こんばんは 🌙
+- **深夜 (0:00-4:59)**: こんばんは 🌃
+
+## 技術スタック
+
+- **バックエンド**: Express.js (Node.js)
+- **フロントエンド**: HTML, CSS, JavaScript (バニラ)
+- **スタイリング**: CSSアニメーション、レスポンシブデザイン
+
+## セットアップと利用方法
+
+### 必要な環境
+- Node.js (v12以上推奨)
+- npm
+
+### インストール手順
+
+1. リポジトリをクローン
+```bash
+git clone [repository-url]
+cd express_hello
+```
+
+2. 依存関係をインストール
+```bash
+npm install
+```
+
+3. アプリケーションを起動
+```bash
+npm start
+```
+
+4. ブラウザで以下のURLにアクセス
+```
+http://localhost:3010
+```
+
+## ファイル構成
+
+```
+express_hello/
+├── index.js          # Express サーバー
+├── pages/
+│   └── index.html    # メインページ
+├── static/
+│   ├── script.js     # クライアントサイドのロジック
+│   └── style.css     # スタイルシート
+└── package.json      # プロジェクト設定
+```
+
+## 機能
+
+- リアルタイムの時刻表示（1分ごとに自動更新）
+- 時間帯に応じた挨拶の自動切り替え
+- アニメーション効果付きの洗練されたUI
+- レスポンシブデザイン対応
+
+## 開発者向け情報
+
+このプロジェクトはExpress.jsを使用したシンプルな構成になっており、追加のビルドツールは不要です。静的ファイルは`static`ディレクトリから直接配信されます。
+
+Express.jsの詳細については[公式ドキュメント](https://expressjs.com/)をご覧ください。
