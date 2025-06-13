@@ -1,107 +1,120 @@
 /* ベーススタイル */
+/* 全ての要素に適用される基本設定 */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box;  /* パディングとボーダーを幅・高さに含める */
+  margin: 0;               /* デフォルトの余白をリセット */
+  padding: 0;              /* デフォルトの内部余白をリセット */
 }
 
 body {
+  /* フォント設定：日本語と英語の両方に対応 */
   font-family: 'Segoe UI', 'Hiragino Sans', 'Yu Gothic UI', 'Meiryo', sans-serif;
-  min-height: 100vh;
-  transition: background 0.5s ease;
-  overflow: hidden;
+  min-height: 100vh;               /* 画面全体の高さを確保 */
+  transition: background 0.5s ease; /* 背景色変化を0.5秒で滑らかに */
+  overflow: hidden;                /* スクロールバーを非表示 */
 }
 
 /* 時間帯別の背景色 */
+/* JavaScriptでbody要素にクラスが追加されると、対応するグラデーションが適用される */
+
+/* 朝のグラデーション：ピンク系の暖かい色合い */
 body.morning {
   background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
 }
 
+/* 昼のグラデーション：青緑からピンクの爆やかな色合い */
 body.afternoon {
   background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
 }
 
+/* 夜のグラデーション：紫系の落ち着いた色合い */
 body.evening {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 /* メインコンテナ */
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-  position: relative;
+  display: flex;            /* フレックスボックスでレイアウト */
+  justify-content: center;  /* 水平方向に中央揃え */
+  align-items: center;      /* 垂直方向に中央揃え */
+  min-height: 100vh;        /* 画面全体の高さを確保 */
+  padding: 20px;            /* 画面端からの余白 */
+  position: relative;       /* 子要素の位置参照用 */
 }
 
 /* 挨拶カード */
 .greeting-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 30px;
-  padding: 60px 40px;
-  text-align: center;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 10;
-  max-width: 600px;
-  width: 100%;
-  transform: scale(0.9);
-  animation: cardAppear 0.8s ease-out forwards;
+  background: rgba(255, 255, 255, 0.95);        /* 半透明の白背景 */
+  backdrop-filter: blur(20px);                  /* 背景をぼかす効果（ガラス風） */
+  border-radius: 30px;                          /* 角を丸める */
+  padding: 60px 40px;                           /* 内部余白（上下60px、左右40px） */
+  text-align: center;                           /* テキストを中央揃え */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);  /* 影をつけて浮いているように見せる */
+  position: relative;                           /* z-indexを有効にするため */
+  z-index: 10;                                  /* 重なり順を前面に */
+  max-width: 600px;                             /* 最大幅を制限 */
+  width: 100%;                                  /* 親要素の幅に合わせる */
+  transform: scale(0.9);                        /* 初期状態で少し縮小 */
+  animation: cardAppear 0.8s ease-out forwards; /* 登場アニメーション */
 }
 
+/* カードの登場アニメーション */
 @keyframes cardAppear {
   to {
-    transform: scale(1);
+    transform: scale(1);  /* 0.9倍から1倍（元のサイズ）に拡大 */
   }
 }
 
 /* 時刻表示 */
 .time-display {
-  margin-bottom: 30px;
+  margin-bottom: 30px;  /* 下の要素との間隔 */
 }
 
 .time-text {
-  font-size: 28px;
-  font-weight: 600;
-  color: #666;
-  font-family: 'Courier New', monospace;
-  letter-spacing: 2px;
-  animation: timeGlow 2s ease-in-out infinite alternate;
+  font-size: 28px;                                       /* 文字サイズ */
+  font-weight: 600;                                      /* 太さ（セミボールド） */
+  color: #666;                                           /* グレー色 */
+  font-family: 'Courier New', monospace;                 /* 等幅フォント */
+  letter-spacing: 2px;                                   /* 文字間隔 */
+  animation: timeGlow 2s ease-in-out infinite alternate; /* 光るアニメーション */
 }
 
+/* 時刻の光るアニメーション */
 @keyframes timeGlow {
   from {
-    text-shadow: 0 0 5px rgba(102, 102, 102, 0.3);
+    text-shadow: 0 0 5px rgba(102, 102, 102, 0.3);   /* 弱い光 */
   }
   to {
-    text-shadow: 0 0 15px rgba(102, 102, 102, 0.6);
+    text-shadow: 0 0 15px rgba(102, 102, 102, 0.6);  /* 強い光 */
   }
 }
 
 /* 挨拶メッセージ */
 .greeting-message {
-  margin-bottom: 40px;
+  margin-bottom: 40px;  /* 下の要素との間隔 */
 }
 
 .greeting-text {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1.2;
-  margin: 0;
-  animation: textSlideIn 1s ease-out;
-  transition: all 0.3s ease;
+  font-size: 48px;                     /* 大きな文字サイズ */
+  font-weight: 700;                    /* 太字（ボールド） */
+  line-height: 1.2;                    /* 行間 */
+  margin: 0;                           /* デフォルト余白をリセット */
+  animation: textSlideIn 1s ease-out;  /* スライドインアニメーション */
+  transition: all 0.3s ease;           /* ホバー時のスムーズな変化 */
 }
 
 /* 時間帯別のテキスト色 */
+/* グラデーションテキスト効果：文字自体にグラデーションを適用 */
+
+/* 朝：赤・オレンジ系 */
 body.morning .greeting-text {
   background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  -webkit-background-clip: text;      /* Safari対応 */
+  -webkit-text-fill-color: transparent; /* Safari対応 */
+  background-clip: text;              /* 文字部分のみ背景を表示 */
 }
 
+/* 昼：青緑系 */
 body.afternoon .greeting-text {
   background: linear-gradient(45deg, #4ecdc4, #44a08d);
   -webkit-background-clip: text;
@@ -109,6 +122,7 @@ body.afternoon .greeting-text {
   background-clip: text;
 }
 
+/* 夜：紫系 */
 body.evening .greeting-text {
   background: linear-gradient(45deg, #667eea, #764ba2);
   -webkit-background-clip: text;
@@ -116,35 +130,40 @@ body.evening .greeting-text {
   background-clip: text;
 }
 
+/* テキストのスライドインアニメーション */
 @keyframes textSlideIn {
   from {
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 0;                   /* 透明から始まる */
+    transform: translateY(30px);  /* 30px下から始まる */
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1;                   /* 不透明になる */
+    transform: translateY(0);     /* 元の位置に戻る */
   }
 }
 
 /* アイコン表示 */
 .time-icon {
-  margin-bottom: 20px;
+  margin-bottom: 20px;  /* 下の要素との間隔 */
 }
 
 .icon {
-  font-size: 64px;
-  display: inline-block;
-  animation: iconBounce 2s ease-in-out infinite;
+  font-size: 64px;                                /* 大きな絵文字サイズ */
+  display: inline-block;                          /* インラインブロック要素 */
+  animation: iconBounce 2s ease-in-out infinite;  /* バウンスアニメーション */
 }
 
+/* アイコンのバウンスアニメーション */
 @keyframes iconBounce {
+  /* 基本位置 */
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
   }
+  /* 最高地点 */
   40% {
     transform: translateY(-10px);
   }
+  /* 小さなバウンス */
   60% {
     transform: translateY(-5px);
   }
@@ -152,29 +171,30 @@ body.evening .greeting-text {
 
 /* 背景装飾 */
 .bg-decoration {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  overflow: hidden;
-  border-radius: 30px;
+  position: absolute;     /* 絶対位置 */
+  top: 0;                 /* 上端に配置 */
+  left: 0;                /* 左端に配置 */
+  right: 0;               /* 右端に配置 */
+  bottom: 0;              /* 下端に配置（全体をカバー） */
+  pointer-events: none;   /* クリックを透過させる */
+  overflow: hidden;       /* はみ出た部分を非表示 */
+  border-radius: 30px;    /* カードと同じ角丸 */
 }
 
 .circle {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  animation: floatCircle 6s ease-in-out infinite;
+  position: absolute;                              /* 絶対位置 */
+  border-radius: 50%;                              /* 円形にする */
+  background: rgba(255, 255, 255, 0.1);            /* 半透明の白 */
+  animation: floatCircle 6s ease-in-out infinite;  /* 浮遊アニメーション */
 }
 
+/* 各円形装飾の個別設定 */
 .circle-1 {
   width: 100px;
   height: 100px;
   top: 10%;
   left: 10%;
-  animation-delay: 0s;
+  animation-delay: 0s;    /* アニメーション開始遅延なし */
 }
 
 .circle-2 {
@@ -182,7 +202,7 @@ body.evening .greeting-text {
   height: 60px;
   top: 60%;
   right: 10%;
-  animation-delay: 2s;
+  animation-delay: 2s;    /* 2秒後に開始 */
 }
 
 .circle-3 {
@@ -190,77 +210,82 @@ body.evening .greeting-text {
   height: 80px;
   bottom: 20%;
   left: 20%;
-  animation-delay: 4s;
+  animation-delay: 4s;    /* 4秒後に開始 */
 }
 
+/* 円形の浮遊アニメーション */
 @keyframes floatCircle {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-    opacity: 0.3;
+    transform: translateY(0px) rotate(0deg);    /* 基本位置、回転なし */
+    opacity: 0.3;                               /* 半透明 */
   }
   50% {
-    transform: translateY(-20px) rotate(180deg);
-    opacity: 0.8;
+    transform: translateY(-20px) rotate(180deg); /* 20px上に移動、180度回転 */
+    opacity: 0.8;                                /* やや不透明 */
   }
 }
 
 /* レスポンシブデザイン */
+/* タブレットサイズ以下（768px以下） */
 @media (max-width: 768px) {
   .greeting-card {
-    padding: 40px 30px;
-    margin: 20px;
+    padding: 40px 30px;   /* 余白を縮小 */
+    margin: 20px;         /* 外側余白を追加 */
   }
   
   .greeting-text {
-    font-size: 36px;
+    font-size: 36px;      /* 文字サイズを縮小 */
   }
   
   .time-text {
-    font-size: 24px;
+    font-size: 24px;      /* 時刻文字を縮小 */
   }
   
   .icon {
-    font-size: 48px;
+    font-size: 48px;      /* アイコンを縮小 */
   }
 }
 
+/* スマートフォンサイズ（480px以下） */
 @media (max-width: 480px) {
   .greeting-card {
-    padding: 30px 20px;
+    padding: 30px 20px;   /* さらに余白を縮小 */
   }
   
   .greeting-text {
-    font-size: 32px;
+    font-size: 32px;      /* さらに文字を縮小 */
   }
   
   .time-text {
-    font-size: 20px;
+    font-size: 20px;      /* さらに時刻を縮小 */
   }
   
   .icon {
-    font-size: 40px;
+    font-size: 40px;      /* さらにアイコンを縮小 */
   }
 }
 
 /* ホバーエフェクト（デスクトップ） */
+/* マウスホバーが使えるデバイスのみ適用 */
 @media (hover: hover) {
   .greeting-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
+    transform: scale(1.02);                        /* 少し拡大 */
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);  /* 影を濃く */
+    transition: all 0.3s ease;                     /* スムーズな変化 */
   }
   
   .greeting-text:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
+    transform: scale(1.05);          /* テキストを少し拡大 */
+    transition: transform 0.3s ease; /* スムーズな変化 */
   }
 }
 
 /* アクセシビリティ：アニメーション削減 */
+/* ユーザーがシステム設定でアニメーションを減らすよう設定している場合 */
 @media (prefers-reduced-motion: reduce) {
   * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;      /* アニメーションをほぼ無効化 */
+    animation-iteration-count: 1 !important;    /* 繰り返しを無効化 */
+    transition-duration: 0.01ms !important;     /* トランジションをほぼ無効化 */
   }
 }
