@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>時間帯別挨拶アプリ</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <main class="greeting-card">
+        <!-- 現在時刻表示 -->
+        <div class="time-display" id="timeDisplay">
+          <span class="time-text" id="timeText">--:--</span>
+        </div>
+        
+        <!-- 挨拶メッセージ -->
+        <div class="greeting-message" id="greetingMessage">
+          <h1 class="greeting-text" id="greetingText">読み込み中...</h1>
+        </div>
+        
+        <!-- 時間帯のアイコン表示 -->
+        <div class="time-icon" id="timeIcon">
+          <span class="icon" id="iconEmoji">🕐</span>
+        </div>
+        
+        <!-- 背景の装飾要素 -->
+        <div class="bg-decoration">
+          <div class="circle circle-1"></div>
+          <div class="circle circle-2"></div>
+          <div class="circle circle-3"></div>
+        </div>
+      </main>
+    </div>
+    
+    <script src="./script.js"></script>
+  </body>
+</html>
